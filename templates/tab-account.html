@@ -1,0 +1,25 @@
+<ion-view>
+	<ion-header-bar class="bar bar-header bar-light">
+  		<img src="img/logo.png" class="dont-resize">
+  	</ion-header-bar>
+
+  <ion-content>
+  	  <div class="button-bar bar-calm">
+  		<a class="button">Coupon</a>
+  		<a class="button">Prizes</a>
+  	  </div>	
+  	  <div class="button-bar">
+		<a class="button button-balanced ion-bag"></a>
+  		<a class="button ion-wineglass" ></a>
+  		<a class="button ion-tshirt"></a>
+  		<a class="button ion-videocamera"> </a>
+  		<a class="button button-energized ion-star"> </a>
+  	  </div>		
+  	  <br>
+    <ion-list ng-controller="listController">
+    	<ion-item ng-repeat="image in imglist track by $index" class="item">
+    			<img ng-src="{{image}}">
+    	</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

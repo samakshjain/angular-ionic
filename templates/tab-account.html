@@ -1,26 +1,38 @@
-<ion-view>
-	<ion-header-bar class="bar bar-header bar-light">
-  		<img src="img/logo.png" class="dont-resize">
-  	</ion-header-bar>
+<ion-view ng-controller="listController">
+	
+  <!-- //header -->
+<!--   <ion-nav-bar align-title="right" class="bar bar-header bar-light padding-right padding-left">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+      <a class="button button-icon icon ion-gear-a" href="#/tab/account/settings" ></a>
+      <a class="button button-icon icon ion-email-unread"  ></a>
+      <a class="button button-icon icon ion-ios-search-strong" ng-click="searchClicked = !searchClicked"> </a>
+      <h2 class="title"><img src="img/logo.png" class="dont-resize"></h2>   
+  </ion-nav-bar> -->
 
-  <ion-content ng-controller="listController">
+
+  <!-- content/view -->
+  <ion-content >
   	  <div class="button-bar bar-calm">
-    		<a class="button">Coupon</a>
-    		<a class="button">Prizes</a>
+    		<a class="button ion-pricetag icon-left" >Coupon</a>
+    		<a class="button ion-ribbon-b icon-left">Prizes</a>
   	  </div>	
   	  <div class="button-bar">
-		    <a class="button button-balanced ion-bag"></a>
-    		<a class="button ion-wineglass" ng-click="toggleSelected('cat1')" ></a>
-    		<a class="button ion-tshirt" ng-click="toggleSelected('cat2')"></a>
-    		<a class="button ion-videocamera" ng-click="toggleSelected('cat3')"> </a>
-    		<a class="button button-energized ion-star"> </a>
+		    <a class="button icon button-balanced ion-card" href="#/tab/account/wallet"></a>
+    		<a class="button icon ion-wineglass" ng-class="{'active':selectedCategories.indexOf('cat1') !== -1}" ng-click="toggleSelected('cat1')" ></a>
+    		<a class="button icon ion-tshirt" ng-class="{'active':selectedCategories.indexOf('cat2') !== -1}" ng-click="toggleSelected('cat2')"></a>
+    		<a class="button icon ion-videocamera" ng-class="{'active':selectedCategories.indexOf('cat3') !== -1}" ng-click="toggleSelected('cat3')"> </a>
+    		<a class="button icon button-energized ion-star"> </a>
   	  </div>		
   	  <br>
-    <ion-list >
-    	<ion-item> </ion-item>
-    	<div class="row card" ng-repeat="image in imglist | filter:filterByCat">
-    			<div class="col">
-    			<img ng-src="{{image.url}}"> Image {{selectedCategories}} {{image.category}} {{filterByCat(image)}}</img>
+     <label class="item item-input" ng-show="searchClicked">
+        <i class="icon ion-search placeholder-icon" ></i>
+      <input type="text" placeholder="Search">
+      </label>
+    <ion-list>
+    	<div class="card" ng-repeat="image in imglist | filter:filterByCat">
+    			<div class="padding">
+    			<img ng-src="{{image.url}}" style="display: block; margin-left: auto; margin-right: auto"></img>
     			</div>
     	</div>
     </ion-list>

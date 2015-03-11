@@ -1,0 +1,71 @@
+	<!-- header -->
+	<ion-nav-bar title="Settings"><h1>Settings</h1>
+		<ion-nav-back-button>
+ 		</ion-nav-back-button></ion-nav-bar>
+	<ion-nav-view animation="slide-left-right">
+	 	 
+
+	<!-- Center content -->
+	  <ion-view view-title="Settings">
+	  	<ion-content class="padding">
+   			<div class="list">
+   				<!-- notification settings -->
+  				<div class="item item-divider">
+	    			Notifications
+	  			</div>
+	  			<ul class="list">
+
+  				<li class="item item-toggle">
+    			 Nearby Deals
+    			 <label class="toggle toggle-calm">
+      				 <input type="checkbox">
+       					<div class="track">
+         					<div class="handle"></div>
+       					</div>
+     			</label>
+  				</li>
+  				<li class="item item-toggle">
+    			 Favourite Deals
+    			 <label class="toggle toggle-calm" ng-click="dealToggle = !dealToggle">
+      				 <input type="checkbox">
+       					<div class="track">
+         					<div class="handle"></div>
+       					</div>
+     			</label>
+  				</li>
+  				<li class="item sub-item" style="background-color: whitesmoke" ng-show="dealToggle" href="#">
+	    			Schedule
+	  			</li>
+  				</ul>
+	  			
+
+	  			<!-- some general settings -->
+	  			<div class="item item-divider">
+	    			General
+	  			</div>
+	  			<ul class="list">
+
+  				<li class="item item-toggle">
+    			 Wifi Only
+    			 <label class="toggle toggle-calm">
+      				 <input type="checkbox">
+       					<div class="track">
+         					<div class="handle"></div>
+       					</div>
+     			</label>
+  				</li>
+  				<li class="item">
+    			 Terms Of Use
+  				</li>
+  				<li class="item">
+  					Feedback!
+  				</li>
+  				</ul>
+			</div>
+  		</ion-content>
+
+	  </ion-view>
+	</ion-nav-view>
+
+   	<!-- Content -->
+  

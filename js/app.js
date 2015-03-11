@@ -23,6 +23,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
 // controller for list of images
 .controller('listController', ['$scope', function($scope){
+   $scope.dealToggle = false;
+   $scope.searchClicked = false;
    $scope.categories = ["cat1","cat2","cat3","cat4", "cat5", "cat6"];
    $scope.imglist = [
                       {url:"https://dtex4kvbppovt.cloudfront.net/images/1ddd27484ee94475bff83cf81d2bc50d7762508c.13811.png", category : "cat1"},
@@ -103,6 +105,22 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       'tab-account': {
         templateUrl: 'templates/tab-account.html',
         controller: 'AccountCtrl'
+      }
+    }
+  })
+  .state('tab.account-settings',{
+    url:'/account/settings',
+    views:{
+      'tab-account' :{
+        templateUrl : 'templates/account-settings.html'      }
+    }
+  })
+  .state('tab.account-wallet',{
+    url:'/account/wallet',
+    views:{
+      'tab-account' :{
+        templateUrl : 'templates/account-wallet.html',
+        controller: 'WalletCtrl'
       }
     }
   });

@@ -23,9 +23,34 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
 // controller for list of images
 .controller('listController', ['$scope', function($scope){
-   $scope.imglist = ["https://dtex4kvbppovt.cloudfront.net/images/1ddd27484ee94475bff83cf81d2bc50d7762508c.13811.png","https://dtex4kvbppovt.cloudfront.net/images/720121e7462d8c7863b4dd8fa7b5c1089b5f5fb2.33862.png","https://dtex4kvbppovt.cloudfront.net/images/877f1c561e735f7b9f419ff9ac79eb8c7481119d.16744.png","https://dtex4kvbppovt.cloudfront.net/images/d11ba0b3095bb19d8092cd29be9cbb9e197671ea.28088.png"]; 
+   $scope.categories = ["cat1","cat2","cat3","cat4", "cat5", "cat6"];
+   $scope.imglist = [
+                      {url:"https://dtex4kvbppovt.cloudfront.net/images/1ddd27484ee94475bff83cf81d2bc50d7762508c.13811.png", category : "cat1"},
+                      {url:"https://dtex4kvbppovt.cloudfront.net/images/720121e7462d8c7863b4dd8fa7b5c1089b5f5fb2.33862.png", category : "cat2"},
+                      {url:"https://dtex4kvbppovt.cloudfront.net/images/877f1c561e735f7b9f419ff9ac79eb8c7481119d.16744.png", category : "cat3"},
+                      {url:"https://dtex4kvbppovt.cloudfront.net/images/d11ba0b3095bb19d8092cd29be9cbb9e197671ea.28088.png", category : "cat4"}
+                    ]; 
+    // toggle selectedCategories 
+    $scope.toggleSelected = function(cat){
+        if ($scope.selectedCategories.indexOf(cat) !== -1){
+          $scope.selectedCategories.pop(cat);
+        }
+        else {
+          $scope.selectedCategories.push(cat);
+        };
+        $scope.selectedCategories["cat1"];
+    };
+    $scope.selectedCategories = [];
+   $scope.filterByCat = function(image) {
+      // body...
+      if ($scope.selectedCategories.length > 0) {
+        return ($scope.selectedCategories.indexOf(image.category) !== -1);
+      }
+      else {
+        return true;
+      }
+  };
 }])
-
 .config(function($stateProvider, $urlRouterProvider) {
 
   // Ionic uses AngularUI Router which uses the concept of states

@@ -3,23 +3,26 @@
   		<img src="img/logo.png" class="dont-resize">
   	</ion-header-bar>
 
-  <ion-content>
+  <ion-content ng-controller="listController">
   	  <div class="button-bar bar-calm">
-  		<a class="button">Coupon</a>
-  		<a class="button">Prizes</a>
+    		<a class="button">Coupon</a>
+    		<a class="button">Prizes</a>
   	  </div>	
   	  <div class="button-bar">
-		<a class="button button-balanced ion-bag"></a>
-  		<a class="button ion-wineglass" ></a>
-  		<a class="button ion-tshirt"></a>
-  		<a class="button ion-videocamera"> </a>
-  		<a class="button button-energized ion-star"> </a>
+		    <a class="button button-balanced ion-bag"></a>
+    		<a class="button ion-wineglass" ng-click="toggleSelected('cat1')" ></a>
+    		<a class="button ion-tshirt" ng-click="toggleSelected('cat2')"></a>
+    		<a class="button ion-videocamera" ng-click="toggleSelected('cat3')"> </a>
+    		<a class="button button-energized ion-star"> </a>
   	  </div>		
   	  <br>
-    <ion-list ng-controller="listController">
-    	<ion-item ng-repeat="image in imglist track by $index" class="item">
-    			<img ng-src="{{image}}">
-    	</ion-item>
+    <ion-list >
+    	<ion-item> </ion-item>
+    	<div class="row card" ng-repeat="image in imglist | filter:filterByCat">
+    			<div class="col">
+    			<img ng-src="{{image.url}}"> Image {{selectedCategories}} {{image.category}} {{filterByCat(image)}}</img>
+    			</div>
+    	</div>
     </ion-list>
   </ion-content>
 </ion-view>

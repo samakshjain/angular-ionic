@@ -15,4 +15,14 @@ angular.module('starter.controllers', [])
 })
 .controller('SettingCtrl', function(){
 
+})
+.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
+  $scope.chat = Chats.get($stateParams.chatID);
+})
+
+.controller('messageCtrl', function($scope, Chats){
+	$scope.chats = Chats.all();
+  	$scope.remove = function(chat) {
+    Chats.remove(chat); 
+	}
 });

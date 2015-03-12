@@ -1,8 +1,5 @@
 /* Empty. Add your own CSS if you like */
-.freak{
-	height: 100%;
-    vertical-align:middle;
-}
+
 .sm-c-text{
 	text-align: center;
 	color: gray;
@@ -15,4 +12,8 @@
 .top-header{
 	margin-left: auto;
     margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    max-height: 100px;
+    max-width: 203px;
 }

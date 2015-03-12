@@ -1,0 +1,62 @@
+<ion-view title="Account" ng-controller="listController">
+	 <ion-nav-buttons side="right">
+       <a class="button button-icon icon ion-settings" ui-sref="account-settings"></a>
+    </ion-nav-buttons> 
+  <!-- content/view -->
+  <ion-content>
+      <button class="button button-icon icon ion-ios-search pull-right" ng-click= "searchClicked = !searchClicked"></button>
+  	  <div class="button-bar bar-calm">
+    		<a class="button ion-pricetag icon-left" >Coupon</a>
+    		<a class="button ion-ribbon-b icon-left">Prizes</a>
+  	  </div>	
+  	  <div class="button-bar">
+		    <a class="button icon button-balanced ion-card" ui-sref="account-wallet"></a>
+    		<a class="button icon ion-wineglass" ng-class="{'active':selectedCategories.indexOf('cat1') !== -1}" ng-click="toggleSelected('cat1')" ></a>
+    		<a class="button icon ion-tshirt" ng-class="{'active':selectedCategories.indexOf('cat2') !== -1}" ng-click="toggleSelected('cat2')"></a>
+    		<a class="button icon ion-videocamera" ng-class="{'active':selectedCategories.indexOf('cat3') !== -1}" ng-click="toggleSelected('cat3')"> </a>
+    		<a class="button icon button-energized ion-star"> </a>
+  	  </div>		
+  	  <br>
+     <label class="item item-input" ng-show="searchClicked">
+        <i class="icon ion-search placeholder-icon" ></i>
+      <input type="text" placeholder="Search">
+      </label>
+      <ion-slide-box on-slide-changed="slideHasChanged($index)">
+          <ion-slide>
+            <ion-list>
+              <div class="card" ng-repeat="image in imglist | filter:filterByCat">
+                  <div class="padding">
+                    <img ng-src="{{image.url}}" style="display: block; margin-left: auto; margin-right: auto"></img>
+                  </div>
+              </div>
+            </ion-list>
+          </ion-slide>
+          <ion-slide>
+            <ion-list>
+              <div class="card" ng-repeat="image in imglist | filter:filterByCat">
+                  <div class="padding">
+                    <img ng-src="{{image.url}}" style="display: block; margin-left: auto; margin-right: auto"></img>
+                  </div>
+              </div>
+            </ion-list>
+          </ion-slide>
+          <ion-slide>
+            <ion-list>
+              <div class="card" ng-repeat="image in imglist | filter:filterByCat">
+                  <div class="padding">
+                    <img ng-src="{{image.url}}" style="display: block; margin-left: auto; margin-right: auto"></img>
+                  </div>
+              </div>
+            </ion-list>
+          </ion-slide>
+      </ion-slide-box>
+
+    <!-- <ion-list>
+    	<div class="card" ng-repeat="image in imglist | filter:filterByCat">
+    			<div class="padding">
+    			<img ng-src="{{image.url}}" style="display: block; margin-left: auto; margin-right: auto"></img>
+    			</div>
+    	</div>
+    </ion-list> -->
+  </ion-content>
+</ion-view>

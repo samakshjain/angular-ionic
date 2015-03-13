@@ -1,4 +1,4 @@
-<ion-view title="Account" ng-controller="listController">
+<ion-view title="Account">
 	 <ion-nav-buttons side="right">
        <a class="button button-icon icon ion-settings" ui-sref="account-settings"></a>
        <a class="button button-icon icon ion-email-unread" ui-sref="account-inbox"></a>
@@ -6,65 +6,69 @@
     </ion-nav-buttons> 
   
   <!-- content/view -->
-  <ion-content>
-
-  	  <div class="button-bar bar-calm">
-    		<button class="button ion-pricetag icon-left" ng-click="searchClicked = !searchClicked">Coupon</button>
+  <ion-pane class="has-header" style = "margin-top : 42px">
+  	  <div class="button-bar bar-calm item">
+    		<button class="button ion-pricetag icon-left">Coupon</button>
     		<a class="button ion-ribbon-b icon-left">Prizes</a>
   	  </div>	
-  	  <div class="button-bar">
+  	  <div class="item button-bar">
 		    <a class="button icon button-balanced ion-card" ui-sref="account-wallet"></a>
     		<a class="button icon ion-wineglass" ng-class="{'active':selectedCategories.indexOf('cat1') !== -1}" ng-click="toggleSelected('cat1')" ></a>
     		<a class="button icon ion-tshirt" ng-class="{'active':selectedCategories.indexOf('cat2') !== -1}" ng-click="toggleSelected('cat2')"></a>
     		<a class="button icon ion-videocamera" ng-class="{'active':selectedCategories.indexOf('pat3') !== -1}" ng-click="toggleSelected('pat3')"> </a>
     		<a class="button icon button-energized ion-star"> </a>
   	  </div>		
-  	  <br> 
-     <label class="item item-input" ng-show="searchClicked">
-        <i class="icon ion-search placeholder-icon" ></i>
-      <input type="text" placeholder="Search a category" ng-model="searchText" ng-blur="toggleSearch(); searchText = null">
-      </label>
-      <ion-slide-box on-slide-changed=" slideHasChanged($index)">
-          <ion-slide>
-            <ion-list>
-              <div class="card" ng-repeat="image in imglist | filter:filterByCat | filter : searchText ">
-                  <div class="padding">
-                    <img ng-src="{{image.url}}" style="display: block; margin-left: auto; margin-right: auto"></img>
-                  </div>
-              </div>
-            </ion-list>
-          </ion-slide>
-          <ion-slide>
-            <ion-list>
-              <div class="card" ng-repeat="image in imglist | filter:filterByCat">
-                  <div class="padding">
-                    <img ng-src="{{image.url}}" style="display: block; margin-left: auto; margin-right: auto"></img>
-                  </div>
-              </div>
-            </ion-list>
-          </ion-slide>
-          <ion-slide>
-            <ion-list>
-              <div class="card" ng-repeat="image in imglist | filter:filterByCat">
-                  <div class="padding">
-                    <img ng-src="{{image.url}}" style="display: block; margin-left: auto; margin-right: auto"></img>
-                  </div>
-              </div>
-            </ion-list>
-          </ion-slide>
-      </ion-slide-box>
-      <br>
-      <br>
-      <div class="bar bar-footer bar-dark">
-  <div class="title">Footer</div>
-</div>
 
-    <!-- <ion-list>
-    	<div class="card" ng-repeat="image in imglist | filter:filterByCat">
-    			<div class="padding">
-    			<img ng-src="{{image.url}}" style="display: block; margin-left: auto; margin-right: auto"></img>
-    			</div>
-    	</div>
-    </ion-list> -->
-  </ion-content>
+      <label class="item item-input" ng-show="searchClicked">
+        <i class="icon ion-search placeholder-icon" ></i>
+        <input type="text" placeholder="Search a category" ng-model="searchText" ng-blur="toggleSearch(); searchText = null">
+      </label>
+        <ion-tabs>
+              <ion-tab title="New">
+                <ion-nav-view >
+                  <ion-list>
+                    <div class="card" ng-repeat="item in itemlist | filter:filterByCat | filter : searchText ">
+                        <div class="padding">
+                          <a href= "#/account/{{item.id}}">
+                            <img ng-src="{{item.imgurl}}" style="display: block; margin-left: auto; margin-right: auto">A</img>
+                          </a>
+                        </div>
+                    </div>
+                  </ion-list>
+                </ion-nav-view>
+              </ion-tab>
+
+              <ion-tab title="Popular">
+                <ion-nav-view>
+                  <ion-list>
+                    <div class="card" ng-repeat="item in itemlist | filter:filterByCat | filter : searchText">
+                        <div class="padding">
+                          <a href= "#/account/{{item.id}}">
+                            <img ng-src="{{item.imgurl}}" style="display: block; margin-left: auto; margin-right: auto" >B</img>
+                          </a>
+                        </div>
+                    </div>
+                  </ion-list>
+                  <ion-nav-view>  
+              </ion-tab>
+
+              <ion-tab title="Favourites">
+                <ion-nav-view>
+                  <ion-list>
+                    <div class="card" ng-repeat="item in itemlist | filter:filterByCat | filter : searchText">
+                        <div class="padding">
+                          <a href= "#/account/{{item.id}}">
+                            <img ng-src="{{item.imgurl}}" style="display: block; margin-left: auto; margin-right: auto" >V</img>
+                          </a>
+                        </div>
+                    </div>
+                  </ion-list>  
+                <ion-nav-view>
+              </ion-tab>
+          <!-- </ion-slide-box> -->
+        </ion-tabs>
+
+
+
+  </ion-pane>
 </ion-view>

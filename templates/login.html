@@ -1,31 +1,31 @@
-<ion-view name="login" title="Login" >  
-	  <ion-content class="padding center">  
-	  	<div class = "row" style="height:30vh;">
-	  	
-	  		<img src="img/logo.png" class="top-header logo">
-	  	</div>
-	    <button class="button button-block button-calm center icon icon-left ion-social-facebook-outline" ui-sref="account-dash">
-	     Log In with Facebook
-	    </button>
-	    <button class="button button-block button-calm center icon icon-left ion-social-googleplus-outline" ui-sref="account-dash">
-	     Log In with Google
-	    </button>
-	    <div class="list">
-	      <p class="sm-c-text"><span class="icon ion-minus-round"></span>  or enter your email  <span class="icon ion-minus-round"></span></p>
-	      <label class="item item-input">
-	        <input type="email" placeholder = "eg. John@gmail.com">
-	      </label>
-	    </div>
-	    <div style="text-align:center;">
-	    	<button class="button button-outline button-calm" ui-sref="account-dash">
-	      	 Sign Up!
-	    	</button>
-	    	<br>
-	    	<button class="button icon-right ion-chevron-right button-clear button-light" ui-sref="account-dash">
-	       	Skip
-	    	</button>
-	    </div>
+<ion-view name="login" title="Login">
+<!-- Content/View -->
+<ion-content class="padding padding" style="background-image:url('img/background.png'); padding-top:1em">
 
-
-	  </ion-content>
+	<div class="row" style="height:25vh;">
+		<img src="img/logo.png" class="top-header logo">
+	</div>
+	<p class="sm-c-text">
+		Add your email-address so we can <br>
+		deliver great deals to your inbox
+	</p>
+	<div class="list">
+		<!-- Facebook login function 'fbLogin' defined in loginControl in controller.js -->
+		<input class='row top-header itemimg' type='image' src="img/buttons/fb-button.png" ng-click="fbLogin()">
+		<!-- Google login function 'gplusLogin' defined in loginControl in controller.js-->
+		<input class='row top-header itemimg' type='image' src='img/buttons/gplus-button.png' ng-click="gplusLogin()">
+		<p class="sm-c-text"><span class="icon ion-minus-round"><span class="icon ion-minus-round"><span class="icon ion-minus-round"><span class="icon ion-minus-round"><span class="icon ion-minus-round"><span class="icon ion-minus-round"><span class="icon ion-minus-round"><span class="icon ion-minus-round"><span class="icon ion-minus-round"><span class="icon ion-minus-round"><span class="icon ion-minus-round">
+			</span>  or  <span class="icon ion-minus-round"><span class="icon ion-minus-round"><span class="icon ion-minus-round"><span class="icon ion-minus-round"><span class="icon ion-minus-round"><span class="icon ion-minus-round"><span class="icon ion-minus-round"><span class="icon ion-minus-round"><span class="icon ion-minus-round"><span class="icon ion-minus-round"><span class="icon ion-minus-round"></span>
+		</p>
+		<input type="text" id="login-input-box" placeholder="Enter your email Address">
+	</div>
+	<div style="text-align:center;">
+		<input type="image" src="img/buttons/login_btn_pink.png" style="width:8.5em" ui-sref="account-dash" alt="Login">
+		<br>
+		<button class="button icon-right ion-chevron-right button-clear" ui-sref="account-dash">
+			Skip
+		</button>
+	</div>
+</ion-content>
+<!-- End of Content -->
 </ion-view>

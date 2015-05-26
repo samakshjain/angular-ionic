@@ -1,0 +1,46 @@
+<ion-view view-title="Prizoupons" class='left'>
+  <ion-header-bar align-title="left" class="bar-positive">
+           <img class="title-image title" src="img/freakoupon_white.png" class="title-image">
+           <div class="buttons">
+           <button class="button button-clear" ng-click="toggleSearch()">
+             <img src="img/buttons/search.png" class="ikon res">
+           </button>
+           <a class="button button-clear" ui-sref="account-inbox">
+             <img src="img/buttons/email.png" class="res ikon">
+           </a> 
+           <a class="button button-clear" ui-sref="account-settings">
+             <img src="img/buttons/settings.png" class="res ikon">
+           </a>
+           </div>
+       </ion-header-bar>
+           <div class="bar bar-subheader">
+             <h2 class="title" style="text-align:left !important; background-image: url(img/res/pink_sub_header.jpg); margin: 0px;
+         padding-left: 9px;
+         margin-top: -1px;
+       "><button class="button button-clear" style="color:white; padding:4px" ng-click="goBack()">< Favorites </button></h2>
+           </div>
+  <ion-content class="has-subheader">
+    <div class="button-bar">
+      <a class="button ibold" style="background: url(img/buttons/category-up.png);" ng-click="slideSelect(0)">Brands</a>
+      <a class="button ibold" ng-click="slideSelect(1)" style="background: url(img/buttons/category-down.png);">Categories</a>
+    </div>
+    <ion-slide-box on-slide-changed="slideHasChanged($index)" active-slide="activeSlide">
+      <ion-slide>
+        <ion-list>
+          <ion-item ng-repeat="category in categories">
+            <img class="bluestar" src='img/icons/blue-star.png'>
+            <img class="bluestar" src='img/dominoes-logo.png'>{{" " +category.name}}
+          </ion-item>
+        </ion-list>
+      </ion-slide>
+      <ion-slide>
+        <ion-list>
+          <ion-item ng-repeat="category in categories">
+            <img class="bluestar" src='img/icons/blue-star.png'>
+            <img class="bluestar" src='img/dominoes-logo.png'>{{category.name}}
+          </ion-item>
+        </ion-list>
+      </ion-slide>
+    </ion-slide-box>
+  </ion-content>
+</ion-view>

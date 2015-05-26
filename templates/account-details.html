@@ -1,0 +1,263 @@
+<style>
+.background-img{
+ 
+  background: url("img/pink_sub_header.jpg");
+  width: 100%;
+  }
+  body {
+  cursor: url('http://ionicframework.com/img/finger.png'), auto;
+  cursor:;
+}
+
+/** For the task list header columns and tasks **/
+.flex-container {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    border: none;
+    -ms-box-orient: horizontal;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: flex;
+
+}
+
+.wrap    {
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 320px) {
+
+    .flex-container.wrap > div{
+        width: 50%;
+        max-width: 50%;
+        text-overflow: '';
+        white-space:nowrap;
+        overflow: hidden;
+    }
+
+}
+
+@media (min-width: 321px) {
+    .flex-container.wrap > div{
+        width: 33%;
+        max-width: 33%;
+        text-overflow: '';
+        white-space:nowrap;
+        overflow: hidden;
+    }
+}
+
+@media (min-width: 480px) {
+    .flex-container.wrap > div{
+        width: 25%;
+        max-width: 25%;
+        text-overflow: '';
+        white-space:nowrap;
+        overflow: hidden;
+    }
+}
+
+@media (min-width: 640px) {
+    .flex-container.wrap > div{
+        width: 20%;
+        max-width: 20%;
+        text-overflow: '';
+        white-space:nowrap;
+        overflow: hidden;
+    }
+}
+
+@media (min-width: 960px) {
+    .flex-container.wrap > div{
+        width: 55%;
+        max-width: 25%;
+        text-overflow: '';
+        white-space:nowrap;
+        overflow: hidden;
+
+    }
+}
+
+.low-pad-item {
+    padding: 0;
+    margin: 0;
+}
+
+.col-header {
+    font-weight: bold;
+}
+
+.column {
+    text-overflow: '';
+    white-space:nowrap;
+    overflow: hidden;
+    max-width: 87%;
+    float: left;
+    padding: 2px 5px;
+
+}
+
+.col-header > .column {
+    padding: 5px 5px;
+}
+
+.underlined {
+    text-decoration: underline;
+}
+
+.column-sort {
+    min-width:13%;
+    float: right;
+    text-align: right;
+    padding-right: 2px;
+}
+.icon-size{
+    height:30px;
+    width:30px;
+}
+.back-color{
+     /*box-shadow: inset 0px 0px 0px 10px rgba(0,0,0,0.3);*/
+}
+.background-images{
+     background-image: url("img/footer.png");
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: inline;
+}
+
+.scroll{
+margin-top:-18px;
+ background-color: #f3f3f3;
+}
+.list{
+ background-color: #f3f3f3;
+margin-top:-5px;
+}
+
+</style>
+<ion-view view-title="">
+ <ion-header-bar align-title="left" class="bar-positive" >
+           <img class="title-image title" src="img/freakoupon_white.png" class="title-image">
+           <div class="buttons">
+          
+           <a class="button button-clear" ui-sref="account-inbox">
+             <img src="img/buttons/email.png" class="res ikon">
+           </a> 
+           <a class="button button-clear" ui-sref="account-settings">
+             <img src="img/buttons/settings.png" class="res ikon">
+           </a>
+           </div>
+       </ion-header-bar>
+	<div class="bar bar-subheader background-img">
+  		<h2 class="title">Account Details</h2>
+	</div>
+	<ion-content class ="padding has-header has-subheader">
+	<img src ="img/devider.png" style="width:100% ;height:8px">
+    <div style="background-color: #ECECEC;">
+		<div class="row">
+		  <div class="col col-60">Email:</div>
+		  <div class="col col-60">Pass:</div>
+		</div>
+		<div class="row">
+		  <div class="col col-60">Name:</div>
+		  <div class="col col-60">DOB:</div>
+		</div>
+		<div class="row">
+		  <div class="col col-60">State:</div>
+		  <div class="col col-60">Sex:</div>
+		</div>
+		<div class="row">
+		  <div class="col col-60">Phone:</div>
+		  <div class="col col-60">Refereal Id:</div>
+		</div>
+		<div class="row">
+		  <div class="col col-60">Vip Staus:</div>
+		  <div class="col col-60">Upgrade to Vip:</div>
+		</div>
+		<div class="row">
+		  <div class="col col-50"><img src ="img/facebook-button.png" style="height:20px;"></div>
+		  <div class="col col-50"><img src ="img/google+-button.png" style="height:20px;"></div>
+		</div>
+		
+		<!--<ul class="ssbp-list">
+		 <li class="ssbp-li--facebook"> <img class ="top-header itemimg"src ="img/facebook-button.png"></li>
+		   <li class="ssbp-li--facebook" style="margin-left:28%;"> <img  class ="top-header itemimg" src ="img/google+-button.png"></div>
+		</ul>  -->
+		<div class ="row" style="background-color: #ECECEC;">
+		 <div class ="col col-75">	
+             <h1 class="title"> <div id="myscore" style="color:#387ef5; display:inline">My Score : </div> <b>59,700 </b> 
+             </h1>
+
+         </div>
+         <div class ="col">
+            <img class ="pull-right icon-size" src=" img/report.png">
+		 </div>	
+		</div>
+    </div>
+		 <ion-list>
+
+            <div class="item col-header item-icon-right" style="background-color: #ECECEC;margin-bottom:-13px;">
+                <div class="flex-container wrap">
+                    <div ng-repeat="column in data.columns" ng-click="sortBy(column.id)">
+                    	<div class ="row">
+                    	<div class ="col"> 
+                        <div class="column" ng-class="{ 'underlined' : data.sortOn === column.id }">{{column.name}}&nbsp;</div>
+                        </div>
+                        </div>
+                        <div class="column-sort">
+                            <i ng-class="{'ion-chevron-up' : data.sortReverse === false, 'ion-chevron-down' : data.sortReverse === true} " ng-if="data.sortOn === column.id"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			 <img src="img/devider.png" style="width:100%;height:8px;">			
+			 </img>
+		
+			 
+            <div class="item low-pad-item item-icon-right" ng-repeat="item in data.items | orderBy:sortData:data.sortReverse " style="background-image:url(img/footer_account.PNG); background-size:100% 100%; background-repeat:no-repeat">
+                <div class="flex-container wrap" >
+                    <div ng-repeat="column in data.columns">
+                    <div class ="row">
+                    	<div class ="col"> 
+                        <div class="column">{{item[column.id]}}&nbsp;</div>
+                       </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <i class="icon ion-chevron-right icon-accessory"></i> -->
+            </div>  
+		
+      </ion-list>
+
+	</ion-content>
+</ion-view>
+<style>
+.width-styling{
+    width :50px;
+    height:20px;
+    max-height:30px;
+    min-height: 23px;
+
+}
+.check{
+    height:50px;
+    width:30px;
+
+}
+.test{
+    border-width: 5px;
+    
+}
+</style>

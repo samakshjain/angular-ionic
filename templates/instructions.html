@@ -1,0 +1,96 @@
+<style>
+.slider
+{
+margin-top : -18px;
+}
+</style>
+
+
+<ion-view title='Dashboard'>
+        <!-- Header bar -->
+        <ion-header-bar align-title="left" class="bar-positive">
+            <img class="title-image title" src="img/freakoupon_white.png" class="title-image">
+            <div class="buttons">
+            <button class="button button-clear" ng-click="toggleSearch()">
+              <img src="img/buttons/search.png" class="ikon res">
+            </button>
+            <a class="button button-clear" ui-sref="account-inbox">
+              <img src="img/buttons/email.png" class="res ikon">
+            </a> 
+            <a class="button button-clear" ui-sref="account-settings">
+              <img src="img/buttons/settings.png" class="res ikon">
+            </a>
+            </div>
+        </ion-header-bar>
+
+
+  <!-- content/view -->
+  <ion-content class="has-header" style="background-image:url('img/background.png');    ">
+  	  <div class="button-bar">
+    		<a style="background: url(img/buttons/up-state-btn.png); background-size: 100% 45px; background-repeat:no-repeat;" class="button ibold">
+          <img style="float:left; margin-left:-16px !important; height:45px" src="img/buttons/left_arrow.png">
+            Coupons
+          <img style="float:right; height:45px; margin-right:-16px" src="img/buttons/right_arrow.png">
+        </a>
+    		<a style="background: url(img/buttons/down-state-btn.png)"class="button ibold"> 
+          Win Prizes!
+        </a>
+  	  </div>	
+  	  <div class="button-bar" ng-show="!searchClicked">
+        
+     		<a class="categoriesBg button" style="font-weight:bold;color:white; height:30px">
+         Instructions
+        </a>
+        
+  	  </div>	
+<img src="img/res/header-divider.png" class="divider" style="top:92px">
+	  
+      <!-- Search bar toggles with searchClicked in controller -->
+      <label class="item item-input" ng-show="searchClicked">
+        <i class="icon ion-search placeholder-icon" ></i>
+        <input type="text" placeholder="Search a category" ng-model="searchText" ng-blur="toggleSearch(); searchText = null">
+      </label>
+      <ion-slide-box on-slide-changed="slideChanged(index)" show-pager="false">
+        <ion-slide>
+         <ion-list>
+            <div class="itemContainer" ng-repeat="item in data | filter:filterByCat | filter : searchText ">
+                <p style="text-align:center;">{{item.title}} <br> <img class="res couponImage" src={{item.image}}></p>
+                <span class="col text-right">
+				
+				</span>
+              </div>
+          </ion-list>  
+        </ion-slide>
+
+        <ion-slide>
+            <div class="itemContainer"  ng-repeat="item in data| filter:filterByCat | filter : searchText ">
+                <p style="text-align:center;">{{item.title}} <br> <img class ="res couponImage" src = {{item.image}}>
+                </p>
+            </div>
+            
+        </ion-slide>
+      
+
+      </ion-slide-box>
+  </ion-content>
+    <!-- End of Ion-Content -->
+    
+
+    <!-- Footer bar using $scope.flag.first to show arrow accordingly -->    
+    <ion-footer-bar class="account_footer">
+	<a ng-show ="flag.first">
+	  <img src="img/lower-triangle.PNG" style="height: 20%;margin-left: 3.5%;margin-top: -0.25em;position: absolute;" > </a>
+	<p class="buttons" style="color:white; margin-left:2%;margin-top:7px;font-size:15px">
+     Missions  
+     
+    </p>
+
+   <h1 class="title" style="color:white; margin-right:-80%;font-size:15px">
+      Auctions
+      <a ng-show ="flag.second">
+	  <img src="img/lower-triangle.PNG" style="height: 22%;margin-left: -2.2em;margin-top: 2px;position: absolute;" > </a>
+    </h1>
+    
+   
+  </ion-footer-bar>
+</ion-view>

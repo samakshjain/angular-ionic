@@ -1,0 +1,262 @@
+<style>
+/*iocon size*/
+.icon-size{
+  height:40px;
+  width:40px;
+}
+/*image responsible*/
+.auto{
+max-width: 100%;
+    height: auto;
+   }
+
+  .blue{
+    background-color: #06527c;
+    padding:15px;
+    margin-top:80px;
+    border-radius: 10px;
+  }
+  .grey{
+   background-image: url("img/background_coupons.png");
+  
+  }
+  .white{
+     color: #ffffff !important;
+      font-weight: lighter;
+  }
+  .get_coupone{
+    height:2em;
+    max-width:5em;
+    /*margin-left:52px !important;*/
+    margin :auto;
+  }
+  #date{
+    font-weight: 900 !important;
+  }
+  .background-img{
+ 
+  background: url("img/pink_sub_header.jpg");
+  width: 100%;
+  }
+</style>
+<style>
+/** For the task list header columns and tasks **/
+.flex-container {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    border: none;
+    -ms-box-orient: horizontal;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: flex;
+
+}
+
+.wrap    {
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 320px) {
+
+    .flex-container.wrap > div{
+        width: 50%;
+        max-width: 50%;
+        text-overflow: '';
+        white-space:nowrap;
+        overflow: hidden;
+    }
+
+}
+
+@media (min-width: 321px) {
+    .flex-container.wrap > div{
+        width: 33%;
+        max-width: 33%;
+        text-overflow: '';
+        white-space:nowrap;
+        overflow: hidden;
+    }
+}
+
+@media (min-width: 480px) {
+    .flex-container.wrap > div{
+        width: 25%;
+        max-width: 25%;
+        text-overflow: '';
+        white-space:nowrap;
+        overflow: hidden;
+    }
+}
+
+@media (min-width: 640px) {
+    .flex-container.wrap > div{
+        width: 20%;
+        max-width: 20%;
+        text-overflow: '';
+        white-space:nowrap;
+        overflow: hidden;
+    }
+}
+
+@media (min-width: 960px) {
+    .flex-container.wrap > div{
+        width: 55%;
+        max-width: 25%;
+        text-overflow: '';
+        white-space:nowrap;
+        overflow: hidden;
+
+    }
+}
+
+.low-pad-item {
+    padding: 0;
+    margin: 0;
+}
+
+.col-header {
+    font-weight: bold;
+}
+
+.column {
+    text-overflow: '';
+    white-space:nowrap;
+    overflow: hidden;
+    max-width: 87%;
+    float: left;
+    padding: 2px 5px;
+
+}
+
+.col-header > .column {
+    padding: 5px 5px;
+}
+
+.underlined {
+    text-decoration: underline;
+}
+
+.column-sort {
+    min-width:13%;
+    float: right;
+    text-align: right;
+    padding-right: 2px;
+}
+.icon-size{
+    height:30px;
+    width:30px;
+}
+.back-color{
+     /*box-shadow: inset 0px 0px 0px 10px rgba(0,0,0,0.3);*/
+}
+.background-images{
+     background-image: url("img/footer.png");
+}
+</style>
+<ion-view view-title="">
+  
+  <ion-header-bar align-title="left" class="bar-positive">
+           <img class="title-image title" src="img/freakoupon_white.png" class="title-image">
+           <div class="buttons">
+           <button class="button button-clear" ng-click="toggleSearch()">
+             <img src="img/buttons/search.png" class="ikon res">
+           </button>
+           <a class="button button-clear" ui-sref="account-inbox">
+             <img src="img/buttons/email.png" class="res ikon">
+           </a> 
+           <a class="button button-clear" ui-sref="account-settings">
+             <img src="img/buttons/settings.png" class="res ikon">
+           </a>
+           </div>
+       </ion-header-bar>
+       <div class="bar bar-subheader background-img">
+      <h2 class="title white"> Pizza hut</h2>
+  </div> 
+<ion-content class ="has-header ">
+  
+  
+
+  <div class="item item-body grey" style ="margin-top: -40px; background-color:#F3F3F3">
+      <div class ="blue">
+        <p style ="text-align: center">
+          <img class="auto" src="img/GoProCam.jpg">
+        </p>
+        <div class ="row">
+        <div class ="col col-75 ">
+          <img class ="icon-size" src ="img/buttons/like.png"/>
+          <img class ="icon-size"src ="img/buttons/share.png"/>
+          <img class ="icon-size"src ="img/buttons/favorites-plus-2.png"/>
+          <img class ="icon-size"src ="img/buttons/save.png"/>
+        </div>
+        <div class ="col col-25 pull-right" >
+           <img style ="height:30px;width:60px"src ="img/2-auction-2_360.png"/>
+        </div>
+      </div>
+    </div>
+  
+      <p>
+	  <h1>
+	  Prize : Go Pro Camera!
+	  </h1>
+	  </p>
+      
+      </div>
+      <ion-list>
+
+         <!--   <div class="item col-header item-icon-right">
+                <div class="flex-container wrap">
+                    <div ng-repeat="column in data.columns" ng-click="sortBy(column.id)">
+                      <div class ="row">
+                      <div class ="col"> 
+                        <div class="column" ng-class="{ 'underlined' : data.sortOn === column.id }">{{column.name}}&nbsp;</div>
+                        </div>
+                        </div>
+                        <div class="column-sort">
+                            <i ng-class="{'ion-chevron-up' : data.sortReverse === false, 'ion-chevron-down' : data.sortReverse === true} " ng-if="data.sortOn === column.id"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>   -->
+			   <div class="item low-pad-item item-icon-right" ng-repeat="item in data.items1 | orderBy:sortData:data.sortReverse  " style="background-color:#F3F3F3">
+					<div class="flex-container wrap" >
+
+                   <div ng-repeat="column in data.columns1">
+                     <div class ="row">
+                       <div class ="col"> 
+                         <div class="column" style="color:#FF11E0">{{item[column.id]}}&nbsp;</div>
+                       </div>
+                     </div>
+                     </div>
+               </div>
+			   </div>
+            <div class="item low-pad-item item-icon-right" ng-repeat="item in data.items | orderBy:sortData:data.sortReverse  " style="background-color:#F3F3F3">
+			
+                <div class="flex-container wrap" >
+                    <div ng-repeat="column in data.columns" class="back-color">
+                    <div class ="row">
+                      <div class ="col"> 
+                        <div class="column" >{{item[column.id]}}&nbsp;</div>
+                       </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <i class="icon ion-chevron-right icon-accessory"></i> -->
+            </div>        
+      </ion-list>
+      <div class ="row" style="background-color:#F3F3F3">
+        <div class ="col col-75">
+            <p style="margin-top:9%">
+			<a href="" style="color:black"><h3>Auction Rules</h3> </a>
+			</p>
+          </div>
+          <div class ="col col-25">
+            <img class ="get_coupone" style="float:right;width:5em;" src ="img/buttons/get-coupone.png"/>
+          </div>
+        </div>
+</ion-content>
+</ion-view>

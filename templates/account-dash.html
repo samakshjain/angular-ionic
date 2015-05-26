@@ -1,74 +1,115 @@
-<ion-view title="Account">
-	 <ion-nav-buttons side="right">
-       <a class="button button-icon icon ion-settings" ui-sref="account-settings"></a>
-       <a class="button button-icon icon ion-email-unread" ui-sref="account-inbox"></a>
-       <button class="button button-icon icon ion-ios-search" ng-click= "toggleSearch()" ></button>
-    </ion-nav-buttons> 
-  
-  <!-- content/view -->
-  <ion-pane class="has-header" style = "margin-top : 42px">
-  	  <div class="button-bar bar-calm item">
-    		<button class="button ion-pricetag icon-left">Coupon</button>
-    		<a class="button ion-ribbon-b icon-left">Prizes</a>
-  	  </div>	
-  	  <div class="item button-bar">
-		    <a class="button icon button-balanced ion-card" ui-sref="account-wallet"></a>
-    		<a class="button icon ion-wineglass" ng-class="{'active':selectedCategories.indexOf('cat1') !== -1}" ng-click="toggleSelected('cat1')" ></a>
-    		<a class="button icon ion-tshirt" ng-class="{'active':selectedCategories.indexOf('cat2') !== -1}" ng-click="toggleSelected('cat2')"></a>
-    		<a class="button icon ion-videocamera" ng-class="{'active':selectedCategories.indexOf('pat3') !== -1}" ng-click="toggleSelected('pat3')"> </a>
-    		<a class="button icon button-energized ion-star"> </a>
-  	  </div>		
+<ion-view title='Dashboard'>
+        <!-- Header bar -->
+        <ion-header-bar align-title="left" style="background-image:url('img/res/up-btn.png'); background-size: auto 44px" class="bar-clear">
+            <img class="title-image title" src="img/freakoupon_white.png" class="title-image">
+            <div class="buttons">
+            <button class="button button-clear" ng-click="toggleSearch()">
+              <img src="img/buttons/search.png" class="ikon res">
+            </button>
+            <a class="button button-clear" ui-sref="account-inbox">
+              <img src="img/buttons/email.png" class="res ikon">
+            </a> 
+            <a class="button button-clear" ui-sref="account-settings">
+              <img src="img/buttons/settings.png" class="res ikon">
+            </a>
+            </div>
+        </ion-header-bar>
 
+  <!-- content/view -->
+
+  <ion-pane class="has-header has-footer" style="background-image:url('img/background.png'); top:44px; bot:44px;">
+  	  <div class="button-bar">
+    		<a style="background: url(img/buttons/up-state-btn.png); background-size: auto 30px;" class="button button-small ibold">
+          <img style="float:left; margin-left:-16px !important; height:30px" src="img/buttons/left_arrow.png">
+            Coupons
+          <img style="float:right; height:30px; margin-right:-16px" src="img/buttons/right_arrow.png">
+        </a>
+    		<a style="background: url(img/buttons/down-state-btn.png); background-size:auto 30px;"class="button button-small ibold"> 
+          Win Prizes!
+        </a>
+  	  </div>	
+  	  <div class="button-bar" style="height:30px !important" ng-show="!searchClicked">
+        <input type="image" src="img/buttons/wallet_btn.png" class="catImages" ui-sref="account-wallet" style="witdth:33px">
+     		<a class="categoriesBg button button-small">
+          <img class="catbarImages" src="img/res/tshirt-small-icon.png">
+          <img class="catbarImages" src="img/res/movie-small-icon.png">
+          <img class="catbarImages" src="img/res/food-small-icon.png">
+        </a>
+        <input type="image" src="img/buttons/favorites_btn.png" class="catImages" ui-sref="favorites">
+  	  </div>		
+      <!-- Search bar toggles with searchClicked in controller -->
       <label class="item item-input" ng-show="searchClicked">
         <i class="icon ion-search placeholder-icon" ></i>
         <input type="text" placeholder="Search a category" ng-model="searchText" ng-blur="toggleSearch(); searchText = null">
       </label>
-        <ion-tabs>
-              <ion-tab title="New">
-                <ion-nav-view >
-                  <ion-list>
-                    <div class="card" ng-repeat="item in itemlist | filter:filterByCat | filter : searchText ">
-                        <div class="padding">
-                          <a href= "#/account/{{item.id}}">
-                            <img ng-src="{{item.imgurl}}" style="display: block; margin-left: auto; margin-right: auto">A</img>
-                          </a>
-                        </div>
-                    </div>
-                  </ion-list>
-                </ion-nav-view>
-              </ion-tab>
+      <img src="img/res/header-divider.png" class="divider">
+      <div>
+      <ion-slide-box on-slide-changed="slideChanged(index)" show-pager="false">
+        <ion-slide>
+        <ion-scroll style="height:78vh" direction="y">
+         <ion-list>
+            <div class="itemContainer" ng-repeat="item in data | filter:filterByCat | filter : searchText ">
+                <p style="text-align:center;">{{item.title}} <br> <img class="res couponImage" src={{item.image}}></p>
+                <span class="col text-right"><button class="button button-small button-positive" ui-sref="coupon-details">Coupon Details</button><button class="button button-small button-positive" ui-sref="mission-details">Mission Details</button>
+                <button class="button button-small button-positive" ui-sref="auction-details">Auction Details</button></span>
+                
+              </div>
+          </ion-list>  
+          </ion-scroll>
+        </ion-slide>
 
-              <ion-tab title="Popular">
-                <ion-nav-view>
-                  <ion-list>
-                    <div class="card" ng-repeat="item in itemlist | filter:filterByCat | filter : searchText">
-                        <div class="padding">
-                          <a href= "#/account/{{item.id}}">
-                            <img ng-src="{{item.imgurl}}" style="display: block; margin-left: auto; margin-right: auto" >B</img>
-                          </a>
-                        </div>
-                    </div>
-                  </ion-list>
-                  <ion-nav-view>  
-              </ion-tab>
+        <ion-slide>
+        <ion-scroll style="height:78vh" direction="y">
+         <ion-list>
+            <div class="itemContainer" ng-repeat="item in data | filter:filterByCat | filter : searchText ">
+                <p style="text-align:center;">{{item.title}} <br> <img class="res couponImage" src={{item.image}}></p>
+                <span class="col text-right"><button class="button button-small button-positive" ui-sref="coupon-details">Coupon Details</button></span>
+              </div>
+          </ion-list>  
+          </ion-scroll>
+        </ion-slide>
+        <ion-slide>
+        <ion-scroll style="height:78vh" direction="y">
+         <ion-list>
+            <div class="itemContainer" ng-repeat="item in data | filter:filterByCat | filter : searchText ">
+                <p style="text-align:center;">{{item.title}} <br> <img class="res couponImage" src={{item.image}}></p>
+                <span class="col text-right"><button class="button button-small button-positive" ui-sref="coupon-details">Coupon Details</button></span>
+              </div>
+          </ion-list>  
+          </ion-scroll>
+        </ion-slide>
 
-              <ion-tab title="Favourites">
-                <ion-nav-view>
-                  <ion-list>
-                    <div class="card" ng-repeat="item in itemlist | filter:filterByCat | filter : searchText">
-                        <div class="padding">
-                          <a href= "#/account/{{item.id}}">
-                            <img ng-src="{{item.imgurl}}" style="display: block; margin-left: auto; margin-right: auto" >V</img>
-                          </a>
-                        </div>
-                    </div>
-                  </ion-list>  
-                <ion-nav-view>
-              </ion-tab>
-          <!-- </ion-slide-box> -->
-        </ion-tabs>
+      </ion-slide-box>
+      </div>
+      <div ng-show="!boolTab">
 
-
-
+      </div>
   </ion-pane>
+    <!-- End of Ion-Content -->
+    
+
+    <!-- Footer bar using $scope.flag.first to show arrow accordingly -->    
+    <ion-footer-bar class="account_footer">
+        <a ng-show ="flag.first">
+          <img src="img/res/lower-triangle.png" style="height: 20%;margin-left: 2.5%;margin-top: -0.25em;position: absolute;" > </a>
+        <p class="buttons" style="color:white; margin-left:2%; margin-top:6px">
+        New  
+        
+       </p>
+
+       <h1 class="title" style="color:white">
+         Popular
+         <a ng-show ="flag.second">
+          <img src="img/res/lower-triangle.png" style="height: 22%;margin-left: -2.2em;margin-top: 2px;position: absolute;" > </a>
+       </h1>
+       
+       <p class="buttons" style="color:white; margin-right:2%; margin-top:6px">
+         Near 
+          <br>
+          <br>
+          <br>
+        <a ng-show ="flag.third">
+          <img src="img/res/lower-triangle.png"style="height: 52%;margin-left: -1.5em;margin-top: -0.58em;position: absolute;" > </a>
+       </p>
+     </ion-footer-bar>
 </ion-view>

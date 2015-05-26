@@ -1,0 +1,52 @@
+<style>
+.icon-size{
+  height:30px;
+  width:30px;
+}
+.button-size{
+  height:40px;
+  width:130px;
+}
+</style>
+<ion-view view-title="">
+  <div class="bar bar-subheader" style="background : url(img/pink_sub_header.jpg); width:100%;">
+      <h2 class="title" >Create Coupon</h2>
+  </div>
+  <ion-content class ="padding has-header has-subheader">
+    <div class ="row">
+      <div class ="col col-75">
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Brand Name</span>
+          <input type="text" placeholder="Brand Name" required="required">
+        </label>
+      </div>
+    </div>
+    <div class ="row">
+      <div class ="col col-75">
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Expiration Date</span>
+          <input type="date" placeholder="Expiration Date" required="required">
+        </label>
+      </div>
+    </div>
+    <div class ="row responsive-sm">
+      <div class ="col ">
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Add Text</span>
+        <input type="text" placeholder="Add Text" required="required">
+        </label>
+      </div>
+    </div>
+    <div class="row"> 
+          <img class ="icon-size"src ="img/save-down.png"/> <p style ="margin-top:5px; margin-left:4px">  Save to My Wallet</p>
+    </div>
+    <div class ="row">
+      <div class ="col">
+        <br>
+        <br>
+        <img class ="button-size" src ="img/submit-btn.png"/>
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>
